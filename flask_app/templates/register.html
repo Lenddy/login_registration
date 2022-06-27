@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <form action="/register/new/user" method="POST">
+            <h1>Register</h1>
+            <br><label for="first_name" class="form_label">First Name</label>
+            <br><input class="form-controll" type="text" name="f_name" id="first_name" value="" placeholder="" > 
+            {% for message in get_flashed_messages (category_filter = ["f_name"] ) %} 
+                {{message}}                  
+            {% endfor %}
+            
+
+
+            <br><label for="last_name" class="form_label">Last Name</label>
+            <br><input type="text" name="l_name" id="last_name" value="" placeholder="">
+            {% for message in get_flashed_messages (category_filter = ["l_name"] ) %} 
+                {{message}}                  
+            {% endfor %}
+
+
+            
+            <br><label for="email" class="form_label">Email</label>
+            <br><input type="text" name="email" id="email">
+            {% for message in get_flashed_messages (category_filter = ["email"] ) %} 
+                {{message}}                  
+            {% endfor %}
+
+
+            <br><label for="password" class="form_label">password</label>
+            <br><input type="password" name="password" id="password">
+            {% for message in get_flashed_messages (category_filter = ["password"] ) %} 
+                {{message}}                  
+            {% endfor %}
+            
+
+            <br><label for="confirm_password" class="form_label">confirm password</label>
+            <br><input type="password" name="confirm_password" id="confirm_password" >
+            {% for message in get_flashed_messages (category_filter = ["error_login"] ) %} 
+                {{message}}                  
+            {% endfor %}
+            
+            <br><button class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+
+    <div class="container">
+        
+        <form action="/login" method ="POST">
+            <h1>Login</h1>
+            <br><label for="email" class="form_label">Email:</label>
+            <br><input type="text" name="email" id="email" value="">         
+
+
+
+            <br><label for="password" class="form_label">Password:</label>
+            <br><input type="password" name="password" id="password" value="" placeholder="" >
+            {% for message in get_flashed_messages (category_filter = ["login_creds"] ) %} 
+                {{message}}                  
+            {% endfor %}
+            
+            <br><button class="btn btn-primary" type="submit">Login</button>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+</body>
+</html>
